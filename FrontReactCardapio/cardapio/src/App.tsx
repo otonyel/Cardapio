@@ -15,14 +15,18 @@ function App() {
   }
   return (
     <>
+    <main>
       <div className="container">
-        <h1>Cardápio</h1>
-        <div className="card-grid">
-          {data?.map(foodData => <Card price={foodData.price} title={foodData.title} image={foodData.image}/>)}
+        <div className="content">
+          <h1>Cardápio</h1>
+          <div className="card-grid">
+            {data?.map(foodData => <Card price={foodData.price} title={foodData.title} image={foodData.image}/>)}
+          </div>
+            {isModalOpen && <CreateModal closeModal={handleOpenModal}/>}
+            <button onClick={handleOpenModal}>Novo</button>
         </div>
-          {isModalOpen && <CreateModal closeModal={handleOpenModal}/>}
-          <button onClick={handleOpenModal}>novo</button>
       </div>
+    </main>
     </>
   )
 }
